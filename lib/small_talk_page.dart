@@ -1,9 +1,6 @@
-import 'package:amplify_api/amplify_api.dart';
-import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_amplify_demo/amplifyconfiguration.dart';
 import 'package:flutter_amplify_demo/models/ModelProvider.dart';
 import 'package:flutter_amplify_demo/models/SmallTalk.dart';
 

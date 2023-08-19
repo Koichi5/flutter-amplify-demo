@@ -39,6 +39,7 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(() {
       _configureAmplify();
+      return null;
     }, []);
 
     return Authenticator(

@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
                   if (value == null || value.isEmpty) {
                     return "ハンドル名を入力してください。";
                   }
+                  return null;
                 },
               ),
               Container(
