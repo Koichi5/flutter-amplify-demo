@@ -1,0 +1,7 @@
+type SmallTalk @model {
+  id: ID!
+  room: String! @index(name: "sortByCreatedAt", sortKeyFields: ["createdAt"])
+  name: String!
+  message: String
+  createdAt: AWSDateTime!
+}

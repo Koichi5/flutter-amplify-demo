@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "flutteramplifydemobedc6203": {}
+      },
+      "api": {
+        "flutteramplifydemo": {}
       }
     }
   }
