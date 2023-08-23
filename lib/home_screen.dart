@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_amplify_demo/small_talk_page.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends HookWidget {
+  HomePage({super.key});
+  
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _handleNameController = TextEditingController();
 

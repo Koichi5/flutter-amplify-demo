@@ -45,7 +45,7 @@ class MyApp extends HookConsumerWidget {
     return Authenticator(
       child: MaterialApp(
         builder: Authenticator.builder(),
-        home: const HomePage(),
+        home: HomePage(),
         locale: const Locale("ja", "JP"),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
@@ -59,11 +59,11 @@ class MyApp extends HookConsumerWidget {
   }
 }
 
-class LoggedInScreen extends HookConsumerWidget {
+class LoggedInScreen extends HookWidget {
   const LoggedInScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Column(
