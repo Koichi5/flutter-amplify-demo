@@ -6,6 +6,7 @@ import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_amplify_demo/about_screen.dart';
 import 'package:flutter_amplify_demo/home_screen.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,17 +20,35 @@ void main() {
   runApp(const MyApp());
 }
 
-final _router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => HomePage()
-      )
-  ]
-);
+final router = GoRouter(routes: [
+  GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+  GoRoute(path: '/about', builder: (context, state) => const AboutScreen()),
+]);
 
-class MyApp extends HookConsumerWidget {
+class MyApp extends HookWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerDelegate: router.routerDelegate,
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
+      locale: const Locale("ja", "JP"),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale("ja", "JP")],
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+
+class MyAmplifyApp extends HookConsumerWidget {
+  const MyAmplifyApp({Key? key}) : super(key: key);
 
   Future<void> _configureAmplify() async {
     try {
@@ -54,7 +73,6 @@ class MyApp extends HookConsumerWidget {
 
     return Authenticator(
       child: MaterialApp.router(
-        routerConfig: _router,
         builder: Authenticator.builder(),
         locale: const Locale("ja", "JP"),
         localizationsDelegates: const [
