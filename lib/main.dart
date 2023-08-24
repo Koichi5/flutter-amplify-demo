@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_amplify_demo/home_screen.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'amplifyconfiguration.dart';
@@ -17,6 +18,15 @@ import 'models/ModelProvider.dart';
 void main() {
   runApp(const MyApp());
 }
+
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => HomePage()
+      )
+  ]
+);
 
 class MyApp extends HookConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -43,9 +53,9 @@ class MyApp extends HookConsumerWidget {
     }, []);
 
     return Authenticator(
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerConfig: _router,
         builder: Authenticator.builder(),
-        home: HomePage(),
         locale: const Locale("ja", "JP"),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
