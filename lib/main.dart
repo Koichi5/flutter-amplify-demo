@@ -101,7 +101,7 @@ class MyAmplifyApp extends HookConsumerWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: const [Locale("ja", "JP")],
+        supportedLocales: const [Locale('ja')],
         debugShowCheckedModeBanner: false,
       ),
     );
