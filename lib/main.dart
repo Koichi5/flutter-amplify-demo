@@ -8,6 +8,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_amplify_demo/about_screen.dart';
 import 'package:flutter_amplify_demo/home_screen.dart';
+import 'package:flutter_amplify_demo/info_screen.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -21,8 +22,24 @@ void main() {
 }
 
 final router = GoRouter(routes: [
-  GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
-  GoRoute(path: '/about', builder: (context, state) => const AboutScreen()),
+  GoRoute(
+      name: 'default',
+      path: '/',
+      builder: (context, state) => const HomeScreen()),
+  GoRoute(
+      name: 'about',
+      path: '/about',
+      builder: (context, state) => const AboutScreen()),
+  GoRoute(
+      path: '/redirect-info',
+      redirect: (context, state) {
+        return '/info';
+      }),
+  GoRoute(
+      path: '/info',
+      pageBuilder: (context, state) {
+        return const MaterialPage(child: InfoScreen());
+      }),
 ]);
 
 class MyApp extends HookWidget {
@@ -45,7 +62,6 @@ class MyApp extends HookWidget {
     );
   }
 }
-
 
 class MyAmplifyApp extends HookConsumerWidget {
   const MyAmplifyApp({Key? key}) : super(key: key);
