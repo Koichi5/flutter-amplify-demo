@@ -8,16 +8,17 @@ class HomeScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      appBar: AppBar(title: const Text("ホーム")),
       body: Center(
-          child: ElevatedButton(
-        onPressed: () {
-          context.go('/about');
-        },
-        child: const Text(
-          "To About screen",
+        child: ElevatedButton(
+          onPressed: () {
+            context.go('/about');
+          },
+          child: const Text(
+            "詳細へ",
+          ),
         ),
-      )),
+      ),
     );
   }
 }

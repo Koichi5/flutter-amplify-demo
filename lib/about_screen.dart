@@ -11,7 +11,7 @@ class AboutScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("About"),
+        title: const Text("詳細"),
         leading: IconButton(
           onPressed: () {
             context.go('/');
@@ -19,17 +19,8 @@ class AboutScreen extends HookConsumerWidget {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text("About"),
-            ElevatedButton(
-                onPressed: () {
-                  ref.watch(isShowInfoScreenProvider.notifier).state = true;
-                },
-                child: const Text("アップデート情報を見る"))
-          ],
-        ),
+      body: const Center(
+        child: Text("詳細"),
       ),
     );
   }
